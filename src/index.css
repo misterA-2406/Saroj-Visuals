@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* 1. BRAND COLORS */
+  --color-charcoal: #0A0A0B;
+  --color-bone: #F5F3EF;
+  --color-accent: #FF6A1A; /* Signal Amber */
+  
+  /* 5-Step Neutral Gray Ramp (Tailored cool/cinematic grays) */
+  --color-gray-100: #EAEAEA;
+  --color-gray-300: #C5C5C7;
+  --color-gray-500: #7A7A7C;
+  --color-gray-800: #2C2C2E;
+  --color-gray-900: #1C1C1E;
+
+  /* 2. TYPOGRAPHY SYSTEM */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Space Grotesk offers an editorial yet sharp geometric aesthetic suitable for film/growth */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* 12-Step Type Scale */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.6rem;
+  
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.7rem;
+  
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.8rem;
+  
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 1.1;
+  
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 1.05;
+  
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.05;
+  
+  --text-6xl: 4rem;
+  --text-6xl--line-height: 1;
+  
+  --text-7xl: 5.5rem;
+  --text-7xl--line-height: 1;
+  
+  --text-8xl: 8rem;
+  --text-8xl--line-height: 0.95;
+
+  --text-9xl: 10rem;
+  --text-9xl--line-height: 0.95;
+
+  /* 4. CINEMATIC SHADOWS */
+  --shadow-cinematic-sm: 0 4px 24px rgba(10, 10, 11, 0.4);
+  --shadow-cinematic: 0 16px 48px rgba(10, 10, 11, 0.6);
+  --shadow-cinematic-lg: 0 32px 64px rgba(10, 10, 11, 0.8);
+  --shadow-accent-glow: 0 0 32px rgba(255, 106, 26, 0.15);
+
+  --animate-marquee: marquee 25s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-charcoal);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+  
+  /* Micro-labels system */
+  .text-micro {
+    font-size: 0.6875rem; /* 11px */
+    line-height: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-800);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+/* 6. IMAGERY DIRECTION & UTILITIES */
+.saturate-cinematic {
+  filter: saturate(1.1) contrast(1.15) sepia(0.05);
+}
+
+.img-overlay-grain {
+  position: relative;
+}
+.img-overlay-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/images/section_grain_texture_1781945367750.jpg");
+  background-size: cover;
+  opacity: 0.15;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.bg-texture-grain {
+  position: relative;
+}
+.bg-texture-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/images/section_grain_texture_1781945367750.jpg");
+  background-size: cover;
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+/* 7. SIGNATURE VISUAL MOTIF: The "Timeline Trim" */
+.motif-timeline {
+  position: relative;
+  border-left: 1px solid var(--color-gray-800);
+}
+.motif-timeline::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 3px;
+  height: 24px;
+  background-color: var(--color-accent);
+}

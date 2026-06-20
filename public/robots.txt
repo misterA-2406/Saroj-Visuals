@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /book/success
+Disallow: /*?tier=
+Disallow: /api/
+
+Sitemap: https://sarojvisuals.com/sitemap.xml
